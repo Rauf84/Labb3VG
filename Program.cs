@@ -16,6 +16,7 @@ namespace Labb3VG
             Menu();
         }
         public static string playerName;
+        public static int myAvatar;
 
         public static string Welcome()
         {
@@ -43,7 +44,8 @@ namespace Labb3VG
         {
             int choise = 0;
             while (choise != 3)
-            {   
+            {
+                Console.Clear();
                 Console.WriteLine("Lets play: \n" +
                             "\n1. Go adventuring" +
                             "\n2. Show details about your character" +
@@ -86,16 +88,68 @@ namespace Labb3VG
         {
             Levels.Level1();
             Levels.Level2();
+            Levels.Level3();
+            Levels.Level4();
+            Levels.Level5();
+            Levels.Level6();
+            Levels.Level7();
+            Levels.Level8();
+            Levels.Level9();
+            Levels.Level10();
+            Console.WriteLine("Congratulations, YOU WON !!! ");
+            Console.WriteLine(Levels.pressEnter);
 
         }
 
         static void ShowDetails()
         {
-
+            Console.Clear();
+            switch (myAvatar)
+            {
+                case 1:
+                    Console.WriteLine("              __)),        ");
+                    Console.WriteLine("            //_ _)         ");
+                    Console.WriteLine("            ( 'V')         ");
+                    Console.WriteLine("             \\_-/         ");
+                    Console.WriteLine("         ,---/  '---.      ");
+                    Console.WriteLine("        /     - -    \\    ");
+                    Console.WriteLine("       /  \\_. _|__,/  \\  ");
+                    Console.WriteLine("      /  )\\        )\\_ \\");
+                    Console.WriteLine("     / _/  (   '  ) /  /   ");
+                    Console.WriteLine("    / |     (_____) | /    ");
+                    Console.WriteLine("   /,'      /     \\/ /,   ");
+                    Console.WriteLine(" _/(_      (   ._, )-'     ");
+                    Console.WriteLine("`--,/      |____|__|       ");
+                    break;
+                case 2:
+                    Console.WriteLine("             ____");
+                    Console.WriteLine("           /((   ))");
+                    Console.WriteLine("          ( )6  6( )");
+                    Console.WriteLine("          (_)  l (_)");
+                    Console.WriteLine("            \\ <>/");
+                    Console.WriteLine("         ____) (_____");
+                    Console.WriteLine("       (   \\____/   )");
+                    Console.WriteLine("       ) (   )(   ) (");
+                    Console.WriteLine("      / / \\      / \\ \\");
+                    Console.WriteLine("     / /   \\    /   \\ \\");
+                    Console.WriteLine("    \\ \\    )==(    / /");
+                    Console.WriteLine("     \\ \\  /    \\  / /");
+                    Console.WriteLine("`    '\\ \\/      \\//'");
+                    break;
+            }
+            Console.WriteLine("______________________________");
+            Console.WriteLine("Name: {0}", playerName);
+            Console.WriteLine("Level: {0}",MyPlayer.Level);
+            Console.WriteLine("Experience: {0}",MyPlayer.Exp);
+            Console.WriteLine("Health points: {0}/100",MyPlayer.Hp);
+            Console.WriteLine("Gold: {0}", MyPlayer.Gold);
+            Console.WriteLine("Strength: {0}", MyPlayer.Strength);
+            Console.WriteLine("Toughness: {0}", MyPlayer.Toughness);
+            Console.WriteLine(Levels.pressEnter);
 
         }
 
-        static void ChoiseAvatar()
+        public static void ChoiseAvatar()
         {
             Console.Clear();
             string s = "Hi " + playerName + ". Please choise your avatar [1 or 2]";
@@ -116,10 +170,12 @@ namespace Labb3VG
             Console.WriteLine(" _/(_      (   ._, )-'                           \\ \\  /    \\  / /");
             Console.WriteLine("`--,/      |____|__|                             '\\ \\/      \\//'");
 
-            int myAvatar = Convert.ToInt32(Console.ReadLine());
+            myAvatar = Convert.ToInt32(Console.ReadLine());
             ShowDetails();
             Console.ReadKey();
         }
+
+         public static Player MyPlayer  = new Player(playerName, myAvatar, 100, 0, 0, 1, 10, 10); 
 
     }
 }
