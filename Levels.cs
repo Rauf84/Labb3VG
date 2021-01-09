@@ -35,11 +35,39 @@ namespace Labb3VG
             Console.WriteLine(pressEnter);
             Console.ReadKey();
             Console.Clear();
-            Console.SetCursorPosition((Console.WindowWidth - Program.playerName.Length)/2, Console.CursorTop);
-            Console.WriteLine("Hi {0}. ",Program.playerName);
+            Console.SetCursorPosition((Console.WindowWidth - Program.playerName.Length) / 2, Console.CursorTop);
+            Console.WriteLine("Hi {0}. ", Program.playerName);
+            //a giant wurm appeared
 
+            ShowMervin();
 
-           
+        }
+
+        public static void ShowMervin()
+        {
+            Console.WriteLine("                          ,---.");
+            Console.WriteLine("                         /    |");
+            Console.WriteLine("                        /     |");
+            Console.WriteLine("                       /      |");
+            Console.WriteLine("                      /       |");
+            Console.WriteLine("                 ___,'        |");
+            Console.WriteLine("               <  -'          :");
+            Console.WriteLine("                `-.__..--'``-,_\\_");
+            Console.WriteLine("                   |o/ <o>` :,.)_`>");
+            Console.WriteLine("                   :/ `     ||/)");
+            Console.WriteLine("                   (_.).__,-` |\\");
+            Console.WriteLine("                   /( `.``   `| :");
+            Console.WriteLine("                   \'`-.)  `  ; ;");
+            Console.WriteLine("                   | `       /-<");
+            Console.WriteLine("                   |     `  /   `.");
+            Console.WriteLine("   ,-_-..____     /|  `    :__..-'\\");
+            Console.WriteLine("  /,'-.__\\\\  ``-./ :`      ;       \\");
+            Console.WriteLine("  `\\ `\\  `\\  \\ :  (   `  /  ,   `.  \\");
+            Console.WriteLine("    \\` \\   \\\\   |  | `   :  :     .\\ \\");
+            Console.WriteLine("     \\ `\\_  ))  :  ;     |  |      ): :");
+            Console.WriteLine("    (`-.-'\\ ||  |\\ \\   ` ;  ;       | |");
+            Console.WriteLine("     \\-_   `;;._   ( `  /  /_       | |");
+            Console.WriteLine("      `-.-.// ,'`-._\\__/_,'         ; |");
         }
 
         public static void Level2()
@@ -115,6 +143,7 @@ namespace Labb3VG
             Console.ReadKey();
             Console.Clear();
             Program.Welcome();
+            Program.ChoiseAvatar();
         }
 
 

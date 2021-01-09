@@ -1,18 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.ComponentModel.Design;
 
 namespace Labb3VG
 {
     class Program
     {
+        [DllImport("kernel32.dll", ExactSpelling = true)]
+        private static extern IntPtr GetConsoleWindow();
+        private static IntPtr ThisConsole = GetConsoleWindow();
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private const int HIDE = 0;
+        private const int MAXIMIZE = 3;
+        private const int MINIMIZE = 6;
+        private const int RESTORE = 9;
         static string s = "* Welcome to The Game! *";
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            ShowWindow(ThisConsole, MAXIMIZE);
+
             Welcome();
             Console.Clear();
-
             ChoiseAvatar();
-
+            Console.Clear();
             Menu();
         }
         public static string playerName;
@@ -96,8 +113,7 @@ namespace Labb3VG
             Levels.Level8();
             Levels.Level9();
             Levels.Level10();
-            Console.WriteLine("Congratulations, YOU WON !!! ");
-            Console.WriteLine(Levels.pressEnter);
+
 
         }
 
@@ -107,18 +123,31 @@ namespace Labb3VG
             switch (myAvatar)
             {
                 case 1:
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("              __)),        ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("            //_ _)         ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("            ( 'V')         ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("             \\_-/         ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("         ,---/  '---.      ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("        /     - -    \\    ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("       /  \\_. _|__,/  \\  ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("      /  )\\        )\\_ \\");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("     / _/  (   '  ) /  /   ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("    / |     (_____) | /    ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("   /,'      /     \\/ /,   ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(" _/(_      (   ._, )-'     ");
+                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine("`--,/      |____|__|       ");
                     break;
                 case 2:
@@ -137,15 +166,26 @@ namespace Labb3VG
                     Console.WriteLine("`    '\\ \\/      \\//'");
                     break;
             }
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("______________________________");
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Name: {0}", playerName);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Level: {0}",MyPlayer.Level);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Experience: {0}",MyPlayer.Exp);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Health points: {0}/100",MyPlayer.Hp);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Gold: {0}", MyPlayer.Gold);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Strength: {0}", MyPlayer.Strength);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine("Toughness: {0}", MyPlayer.Toughness);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine(Levels.pressEnter);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.ReadKey(); 
 
         }
 
@@ -175,7 +215,8 @@ namespace Labb3VG
             Console.ReadKey();
         }
 
-         public static Player MyPlayer  = new Player(playerName, myAvatar, 100, 0, 0, 1, 10, 10); 
+        //public Player(string name, int avatar, int hp, int exp, int gold, int level, int strength, int toughness)
+        public static Player MyPlayer  = new Player(playerName, myAvatar, 100, 0, 0, 1, 10, 10); 
 
     }
 }
