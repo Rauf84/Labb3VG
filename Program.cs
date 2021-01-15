@@ -16,207 +16,239 @@ namespace Labb3VG
         private static IntPtr ThisConsole = GetConsoleWindow();
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        private const int HIDE = 0;
         private const int MAXIMIZE = 3;
-        private const int MINIMIZE = 6;
-        private const int RESTORE = 9;
-        static string s = "* Welcome to The Game! *";
+
         static void Main(string[] args)
         {
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ShowWindow(ThisConsole, MAXIMIZE);
 
+            SpecMonster.AddMonster();
             Welcome();
             Console.Clear();
             ChoiseAvatar();
-            Console.Clear();
             Menu();
+            ShowByeBye();
         }
         public static string playerName;
         public static int myAvatar;
-
+        public static int choise;
         public static string Welcome()
         {
             
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("************************");
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine(s);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("************************");
+            Levels.PrintInTheMiddle("************************");
+            Levels.PrintInTheMiddle("* Welcome to The Game! *");
+            Levels.PrintInTheMiddle("************************");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Levels.PrintInTheMiddle("(q) = Quit");
+            Console.SetCursorPosition((Console.WindowWidth - "************************".Length) / 2, Console.CursorTop);
             Console.Write("Enter your name: ");
             playerName = Console.ReadLine();
             Console.Clear();
-            string welcomePlayer = "Welcome to the game " + playerName;
-            Console.SetCursorPosition((Console.WindowWidth - welcomePlayer.Length)/2, Console.CursorTop);
             return playerName;
         }
 
         public static void Menu()
         {
-            int choise = 0;
-            while (choise != 3)
+            while (choise != 4)
             {
-                Console.Clear();
-                Console.WriteLine("Lets play: \n" +
-                            "\n1. Go adventuring" +
-                            "\n2. Show details about your character" +
-                            "\n3. Exit game");
-                Console.Write("Enter your choise here: ");
-                choise = Convert.ToInt32(Console.ReadLine());
+                if (MyPlayer.Hp == 0)
+                {
+                    Levels.PrintInTheMiddle("Let's try again " + MyPlayer.Name);
+                    SpecMonster.AddMonster();
+                    ResetPlayer();
+                    ResetMonsters();
+                    ShowDetails();
+                    Console.WriteLine();
+                    keepPlaing = true;
+                }
+                ShowMeny();
+
                 switch (choise)
                 {
                     case 1:
                         Console.Clear();
+                        if (MyPlayer.Hp == 0)
+                        {
+                            
+                            
+                        }
                         Play();
                         break;
                     case 2:
                         ShowDetails();
                         break;
                     case 3:
-                        Console.WriteLine(" .----------------.  .----------------.  .----------------.   .----------------.  .----------------.  .----------------. ");
-                        Console.WriteLine("| .--------------. || .--------------. || .--------------. | | .--------------. || .--------------. || .--------------. |");
-                        Console.WriteLine("| |   ______     | || |  ____  ____  | || |  _________   | | | |   ______     | || |  ____  ____  | || |  _________   | |");
-                        Console.WriteLine("| |  |_   _ \\    | || | |_  _||_  _| | || | |_   ___  |  | | | |  |_   _ \\    | || | |_  _||_  _| | || | |_   ___  |  | |");
-                        Console.WriteLine("| |    | |_) |   | || |   \\ \\  / /   | || |   | |_  \\_|  | | | |    | |_) |   | || |   \\ \\  / /   | || |   | |_  \\_|  | |");
-                        Console.WriteLine("| |    |  __'.   | || |    \\ \\/ /    | || |   |  _|  _   | | | |    |  __'.   | || |    \\ \\/ /    | || |   |  _|  _   | |");
-                        Console.WriteLine("| |   _| |__) |  | || |    _|  |_    | || |  _| |___/ |  | | | |   _| |__) |  | || |    _|  |_    | || |  _| |___/ |  | |");
-                        Console.WriteLine("| |  |_______/   | || |   |______|   | || | |_________|  | | | |  |_______/   | || |   |______|   | || | |_________|  | |");
-                        Console.WriteLine("| |              | || |              | || |              | | | |              | || |              | || |              | |");
-                        Console.WriteLine("| '--------------' || '--------------' || '--------------' | | '--------------' || '--------------' || '--------------' |");
-                        Console.WriteLine(" '----------------'  '----------------'  '----------------'   '----------------'  '----------------'  '----------------' ");
+                        Shoping.Shoping1();
                         break;
-                default:
+                    case 4:
+                        Console.Clear();
+                        keepPlaing = false;
+                        break;
+                    default:
                         Console.WriteLine("Invalid input. Press any key to try again.");
                         Console.ReadKey();
                         Console.Clear();
-                break;
+                        break;
                 }
             }
 
         }
 
+        private static void ResetMonsters()
+        {
+            for (int i = 0; i < SpecMonster.listOfMonsters.Count; i++)
+            {
+                SpecMonster.listOfMonsters[i].Hp = 100;
+            }
+        }
+
+        private static void ResetPlayer()
+        {
+            MyPlayer.Level = 1;
+            MyPlayer.Exp = 0;
+            MyPlayer.Hp = 100;
+            MyPlayer.Gold = 0;
+            MyPlayer.Strength = 10;
+            MyPlayer.Toughness = 2;
+        }
+
+        public static void ShowMeny()
+        {
+            string s = "Lets play: ";
+            Console.Clear();
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.WriteLine(s);
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.WriteLine("1. Go adventuring");
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.WriteLine("2. Show details about your character");
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.WriteLine("3. Go to the shop");
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.WriteLine("4. Exit the game");
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.Write("Enter your choise here: ");
+            choise = Convert.ToInt32(Console.ReadLine());
+        }
+
+        public static void ShowByeBye()
+        {
+            Levels.PrintInTheMiddle(" .----------------.  .----------------.  .----------------.   .----------------.  .----------------.  .----------------. ");
+            Levels.PrintInTheMiddle("| .--------------. || .--------------. || .--------------. | | .--------------. || .--------------. || .--------------. |");
+            Levels.PrintInTheMiddle("| |   ______     | || |  ____  ____  | || |  _________   | | | |   ______     | || |  ____  ____  | || |  _________   | |");
+            Levels.PrintInTheMiddle("| |  |_   _ \\    | || | |_  _||_  _| | || | |_   ___  |  | | | |  |_   _ \\    | || | |_  _||_  _| | || | |_   ___  |  | |");
+            Levels.PrintInTheMiddle("| |    | |_) |   | || |   \\ \\  / /   | || |   | |_  \\_|  | | | |    | |_) |   | || |   \\ \\  / /   | || |   | |_  \\_|  | |");
+            Levels.PrintInTheMiddle("| |    |  __'.   | || |    \\ \\/ /    | || |   |  _|  _   | | | |    |  __'.   | || |    \\ \\/ /    | || |   |  _|  _   | |");
+            Levels.PrintInTheMiddle("| |   _| |__) |  | || |    _|  |_    | || |  _| |___/ |  | | | |   _| |__) |  | || |    _|  |_    | || |  _| |___/ |  | |");
+            Levels.PrintInTheMiddle("| |  |_______/   | || |   |______|   | || | |_________|  | | | |  |_______/   | || |   |______|   | || | |_________|  | |");
+            Levels.PrintInTheMiddle("| |              | || |              | || |              | | | |              | || |              | || |              | |");
+            Levels.PrintInTheMiddle("| '--------------' || '--------------' || '--------------' | | '--------------' || '--------------' || '--------------' |");
+            Levels.PrintInTheMiddle(" '----------------'  '----------------'  '----------------'   '----------------'  '----------------'  '----------------' ");
+        }
+
+        public static bool keepPlaing = true;
         static void Play()
         {
-            Levels.Level1();
-            Levels.Level2();
-            Levels.Level3();
-            Levels.Level4();
-            Levels.Level5();
-            Levels.Level6();
-            Levels.Level7();
-            Levels.Level8();
-            Levels.Level9();
-            Levels.Level10();
+            while (keepPlaing)
+            {
+                Levels.Level1();
+            }
+
 
 
         }
 
-        static void ShowDetails()
+        public static void ShowDetails()
         {
-            Console.Clear();
             switch (myAvatar)
             {
                 case 1:
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("              __)),        ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("            //_ _)         ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("            ( 'V')         ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("             \\_-/         ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("         ,---/  '---.      ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("        /     - -    \\    ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("       /  \\_. _|__,/  \\  ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("      /  )\\        )\\_ \\");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("     / _/  (   '  ) /  /   ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("    / |     (_____) | /    ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("   /,'      /     \\/ /,   ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine(" _/(_      (   ._, )-'     ");
-                    Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-                    Console.WriteLine("`--,/      |____|__|       ");
+                    Levels.PrintInTheMiddle("              __)),        ");
+                    Levels.PrintInTheMiddle("            //_ _)         ");
+                    Levels.PrintInTheMiddle("            ( 'V')         ");
+                    Levels.PrintInTheMiddle("             \\_-/         ");
+                    Levels.PrintInTheMiddle("         ,---/  '---.      ");
+                    Levels.PrintInTheMiddle("        /     - -    \\    ");
+                    Levels.PrintInTheMiddle("       /  \\_. _|__,/  \\  ");
+                    Levels.PrintInTheMiddle("      /  )\\        )\\_ \\");
+                    Levels.PrintInTheMiddle("     / _/  (   '  ) /  /   ");
+                    Levels.PrintInTheMiddle("    / |     (_____) | /    ");
+                    Levels.PrintInTheMiddle("   /,'      /     \\/ /,   ");
+                    Levels.PrintInTheMiddle(" _/(_      (   ._, )-'     ");
+                    Levels.PrintInTheMiddle("`--,/      |____|__|       ");
                     break;
                 case 2:
-                    Console.WriteLine("             ____");
-                    Console.WriteLine("           /((   ))");
-                    Console.WriteLine("          ( )6  6( )");
-                    Console.WriteLine("          (_)  l (_)");
-                    Console.WriteLine("            \\ <>/");
-                    Console.WriteLine("         ____) (_____");
-                    Console.WriteLine("       (   \\____/   )");
-                    Console.WriteLine("       ) (   )(   ) (");
-                    Console.WriteLine("      / / \\      / \\ \\");
-                    Console.WriteLine("     / /   \\    /   \\ \\");
-                    Console.WriteLine("    \\ \\    )==(    / /");
-                    Console.WriteLine("     \\ \\  /    \\  / /");
-                    Console.WriteLine("`    '\\ \\/      \\//'");
+                    Levels.PrintInTheMiddle("         ____");
+                    Levels.PrintInTheMiddle("        /((   ))");
+                    Levels.PrintInTheMiddle("       ( )6  6( )");
+                    Levels.PrintInTheMiddle("       (_)  l (_)");
+                    Levels.PrintInTheMiddle("       \\ <>/");
+                    Levels.PrintInTheMiddle("       ____) (_____");
+                    Levels.PrintInTheMiddle("       (   \\____/   )");
+                    Levels.PrintInTheMiddle("       ) (   )(   ) (");
+                    Levels.PrintInTheMiddle("     / / \\      / \\ \\");
+                    Levels.PrintInTheMiddle("     / /   \\    /   \\ \\");
+                    Levels.PrintInTheMiddle("    \\ \\    )==(    / /");
+                    Levels.PrintInTheMiddle("     \\ \\  /    \\  / /");
+                    Levels.PrintInTheMiddle("`    '\\ \\/      \\//'");
+                    
                     break;
             }
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("______________________________");
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Name: {0}", playerName);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Level: {0}",MyPlayer.Level);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Experience: {0}",MyPlayer.Exp);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Health points: {0}/100",MyPlayer.Hp);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Gold: {0}", MyPlayer.Gold);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Strength: {0}", MyPlayer.Strength);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine("Toughness: {0}", MyPlayer.Toughness);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.WriteLine(Levels.pressEnter);
-            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
-            Console.ReadKey(); 
 
+            string d1="______________________________";
+            string d2="Name: "+ playerName;
+            string d3="Level: " + MyPlayer.Level;
+            string d4="Experience: " + MyPlayer.Exp;
+            string d5="Health points: " + MyPlayer.Hp;
+            string d6="Gold: " +  MyPlayer.Gold;
+            string d7="Strength: " + MyPlayer.Strength;
+            string d8="Toughness: " + MyPlayer.Toughness;
+            Levels.PrintInTheMiddle(d1);
+            Levels.PrintInTheMiddle(d2);
+            Levels.PrintInTheMiddle(d3);
+            Levels.PrintInTheMiddle(d4);
+            Levels.PrintInTheMiddle(d5);
+            Levels.PrintInTheMiddle(d6);
+            Levels.PrintInTheMiddle(d7);
+            Levels.PrintInTheMiddle(d8);
+            Levels.PrintInTheMiddle(Levels.pressEnter);
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public static void ChoiseAvatar()
         {
             Console.Clear();
             string s = "Hi " + playerName + ". Please choise your avatar [1 or 2]";
-            Console.WriteLine("            "+s);
+            Console.SetCursorPosition((Console.WindowWidth - (s.Length + playerName.Length)) / 2, Console.CursorTop);
             Console.WriteLine();
-            Console.WriteLine("             Avatar 1                                 Avatar 2             ");
-            Console.WriteLine("              __)),                                    ____");
-            Console.WriteLine("            //_ _)                                  /((   ))");
-            Console.WriteLine("            ( 'V')                                  ( )6  6( )");
-            Console.WriteLine("             \\_-/                                   (_)  l (_)");
-            Console.WriteLine("         ,---/  '---.                                 \\ <>/");
-            Console.WriteLine("        /     - -    \\                             ____) (_____");
-            Console.WriteLine("       /  \\_. _|__,/  \\                          (   \\____/   )");
-            Console.WriteLine("      /  )\\        )\\_ \\                          ) (   )(   ) (");
-            Console.WriteLine("     / _/  (   '  ) /  /                         / / \\      / \\ \\");
-            Console.WriteLine("    / |     (_____) | /                         / /   \\    /   \\ \\");
-            Console.WriteLine("   /,'      /     \\/ /,                         \\ \\    )==(    / /");
-            Console.WriteLine(" _/(_      (   ._, )-'                           \\ \\  /    \\  / /");
-            Console.WriteLine("`--,/      |____|__|                             '\\ \\/      \\//'");
+            Console.SetCursorPosition((Console.WindowWidth - (s.Length + playerName.Length)) / 2, Console.CursorTop);
+
+            Levels.PrintInTheMiddle("                      Avatar 1                                 Avatar 2             ");
+            Levels.PrintInTheMiddle("            __)),                                  ____");
+            Levels.PrintInTheMiddle("           //_ _)                                  /((   ))");
+            Levels.PrintInTheMiddle("            ( 'V')                                 ( )6  6( )");
+            Levels.PrintInTheMiddle("             \\_-/                                  (_)  l (_)");
+            Levels.PrintInTheMiddle("      ,---/  '---.                                \\ <>/");
+            Levels.PrintInTheMiddle("        /     - -    \\                            ____) (_____");
+            Levels.PrintInTheMiddle("       /  \\_. _|__,/  \\                          (   \\____/   )");
+            Levels.PrintInTheMiddle("      /  )\\        )\\_ \\                         ) (   )(   ) (");
+            Levels.PrintInTheMiddle("     / _/  (   '  ) /  /                         / / \\      / \\ \\");
+            Levels.PrintInTheMiddle("    / |     (_____) | /                         / /   \\    /   \\ \\");
+            Levels.PrintInTheMiddle("   /,'      /     \\/ /,                         \\ \\    )==(    / /");
+            Levels.PrintInTheMiddle(" _/(_      (   ._, )-'                           \\ \\  /    \\  / /");
+            Levels.PrintInTheMiddle("`--,/     |____|__|                              '\\ \\/      \\//'");
 
             myAvatar = Convert.ToInt32(Console.ReadLine());
             ShowDetails();
-            Console.ReadKey();
         }
 
         //public Player(string name, int avatar, int hp, int exp, int gold, int level, int strength, int toughness)
-        public static Player MyPlayer  = new Player(playerName, myAvatar, 100, 0, 0, 1, 10, 10); 
+        public static Player MyPlayer  = new Player(playerName, myAvatar, 100, 0, 0, 1, 10, 2); 
 
     }
 }
