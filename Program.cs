@@ -24,6 +24,7 @@ namespace Labb3VG
             ShowWindow(ThisConsole, MAXIMIZE);
 
             SpecMonster.AddMonster();
+
             Welcome();
             Console.Clear();
             ChoiseAvatar();
@@ -53,7 +54,7 @@ namespace Labb3VG
 
         public static void Menu()
         {
-            while (choise != 4)
+            while (choise != 4 && keepPlaing == true)
             {
                 if (MyPlayer.Hp == 0)
                 {
@@ -67,37 +68,38 @@ namespace Labb3VG
                 }
                 ShowMeny();
 
-                switch (choise)
-                {
-                    case 1:
-                        Console.Clear();
-                        if (MyPlayer.Hp == 0)
-                        {
-                            
-                            
-                        }
-                        Play();
-                        break;
-                    case 2:
-                        ShowDetails();
-                        break;
-                    case 3:
-                        Shoping.Shoping1();
-                        break;
-                    case 4:
-                        Console.Clear();
-                        keepPlaing = false;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input. Press any key to try again.");
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
-                }
+                FourActions();
             }
 
         }
 
+        public static void FourActions()
+        {
+            switch (choise)
+            {
+                case 1:
+                    Console.Clear();
+                    Play();
+                    break;
+                case 2:
+                    ShowDetails();
+                    break;
+                case 3:
+                    Shoping.Shoping1();
+                    break;
+                case 4:
+                    Console.Clear();
+                    keepPlaing = false;
+                    break;
+                default:
+                    Levels.PrintInTheMiddle("Invalid input. Press any key to try again.");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+            }
+        }
+
+        //Återställer hp värden på alla monstrar
         private static void ResetMonsters()
         {
             for (int i = 0; i < SpecMonster.listOfMonsters.Count; i++)
@@ -106,6 +108,7 @@ namespace Labb3VG
             }
         }
 
+        //Återställer alla värden på player till ursprungliga
         private static void ResetPlayer()
         {
             MyPlayer.Level = 1;
@@ -116,10 +119,10 @@ namespace Labb3VG
             MyPlayer.Toughness = 2;
         }
 
+        //visar  meny 1-4
         public static void ShowMeny()
         {
             string s = "Lets play: ";
-            Console.Clear();
             Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             Console.WriteLine(s);
             Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
@@ -135,6 +138,7 @@ namespace Labb3VG
             choise = Convert.ToInt32(Console.ReadLine());
         }
 
+        //Skriver ut bye bye 
         public static void ShowByeBye()
         {
             Levels.PrintInTheMiddle(" .----------------.  .----------------.  .----------------.   .----------------.  .----------------.  .----------------. ");
@@ -151,19 +155,20 @@ namespace Labb3VG
         }
 
         public static bool keepPlaing = true;
+
+        //
         static void Play()
         {
             while (keepPlaing)
             {
-                Levels.Level1();
+                Levels.Level();
             }
-
-
 
         }
 
         public static void ShowDetails()
         {
+            Console.WriteLine();
             switch (myAvatar)
             {
                 case 1:
@@ -172,29 +177,29 @@ namespace Labb3VG
                     Levels.PrintInTheMiddle("            ( 'V')         ");
                     Levels.PrintInTheMiddle("             \\_-/         ");
                     Levels.PrintInTheMiddle("         ,---/  '---.      ");
-                    Levels.PrintInTheMiddle("        /     - -    \\    ");
-                    Levels.PrintInTheMiddle("       /  \\_. _|__,/  \\  ");
-                    Levels.PrintInTheMiddle("      /  )\\        )\\_ \\");
+                    Levels.PrintInTheMiddle("        /     - -    \\     ");
+                    Levels.PrintInTheMiddle("       /  \\_. _|__,/  \\    ");
+                    Levels.PrintInTheMiddle("     /  )\\        )\\_ \\   ");
                     Levels.PrintInTheMiddle("     / _/  (   '  ) /  /   ");
                     Levels.PrintInTheMiddle("    / |     (_____) | /    ");
-                    Levels.PrintInTheMiddle("   /,'      /     \\/ /,   ");
+                    Levels.PrintInTheMiddle("   /,'      /     \\/ /,    ");
                     Levels.PrintInTheMiddle(" _/(_      (   ._, )-'     ");
                     Levels.PrintInTheMiddle("`--,/      |____|__|       ");
                     break;
                 case 2:
-                    Levels.PrintInTheMiddle("         ____");
-                    Levels.PrintInTheMiddle("        /((   ))");
-                    Levels.PrintInTheMiddle("       ( )6  6( )");
-                    Levels.PrintInTheMiddle("       (_)  l (_)");
-                    Levels.PrintInTheMiddle("       \\ <>/");
-                    Levels.PrintInTheMiddle("       ____) (_____");
-                    Levels.PrintInTheMiddle("       (   \\____/   )");
-                    Levels.PrintInTheMiddle("       ) (   )(   ) (");
-                    Levels.PrintInTheMiddle("     / / \\      / \\ \\");
-                    Levels.PrintInTheMiddle("     / /   \\    /   \\ \\");
-                    Levels.PrintInTheMiddle("    \\ \\    )==(    / /");
-                    Levels.PrintInTheMiddle("     \\ \\  /    \\  / /");
-                    Levels.PrintInTheMiddle("`    '\\ \\/      \\//'");
+                    Levels.PrintInTheMiddle("____");
+                    Levels.PrintInTheMiddle("/((   ))");
+                    Levels.PrintInTheMiddle("( )6  6( )");
+                    Levels.PrintInTheMiddle("(_)  l (_)");
+                    Levels.PrintInTheMiddle("\\ <>/");
+                    Levels.PrintInTheMiddle("____) (_____");
+                    Levels.PrintInTheMiddle("(   \\____/   )");
+                    Levels.PrintInTheMiddle(") (   )(   ) (");
+                    Levels.PrintInTheMiddle("/ / \\      / \\ \\");
+                    Levels.PrintInTheMiddle("/ /   \\    /   \\ \\");
+                    Levels.PrintInTheMiddle("\\ \\    )==(    / /");
+                    Levels.PrintInTheMiddle("\\ \\  /    \\  / /");
+                    Levels.PrintInTheMiddle("'\\ \\/      \\//'");
                     
                     break;
             }
@@ -229,7 +234,7 @@ namespace Labb3VG
             Console.SetCursorPosition((Console.WindowWidth - (s.Length + playerName.Length)) / 2, Console.CursorTop);
 
             Levels.PrintInTheMiddle("                      Avatar 1                                 Avatar 2             ");
-            Levels.PrintInTheMiddle("            __)),                                  ____");
+            Levels.PrintInTheMiddle("            __)),                                   ____ ");
             Levels.PrintInTheMiddle("           //_ _)                                  /((   ))");
             Levels.PrintInTheMiddle("            ( 'V')                                 ( )6  6( )");
             Levels.PrintInTheMiddle("             \\_-/                                  (_)  l (_)");
@@ -242,6 +247,11 @@ namespace Labb3VG
             Levels.PrintInTheMiddle("   /,'      /     \\/ /,                         \\ \\    )==(    / /");
             Levels.PrintInTheMiddle(" _/(_      (   ._, )-'                           \\ \\  /    \\  / /");
             Levels.PrintInTheMiddle("`--,/     |____|__|                              '\\ \\/      \\//'");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.SetCursorPosition((Console.WindowWidth- "Enter yout choise (1/2): ".Length) /2,Console.CursorTop);
+            Console.Write("Enter your choise (1/2): ");
 
             myAvatar = Convert.ToInt32(Console.ReadLine());
             ShowDetails();

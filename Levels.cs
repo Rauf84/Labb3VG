@@ -14,66 +14,190 @@ namespace Labb3VG
             Console.SetCursorPosition((Console.WindowWidth - s1.Length) / 2, Console.CursorTop);
             Console.WriteLine(s1);
         }
-        public static void Level1()
+        public static void Level()
         {
+           Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine();
-            PrintInTheMiddle("Level "+Program.MyPlayer.Level);
-            /*
-            PrintInTheMiddle(" _______  _______  _______  _______  _______ _________");
-            PrintInTheMiddle("(  ____ \\(  ___  )(  ____ )(  ____ \\(  ____ \\__   __/");
-            PrintInTheMiddle("| (    \\/| (   ) || (    )|| (    \\/| (    \\/   ) (   ");
-            PrintInTheMiddle("| (__    | |   | || (____)|| (__    | (_____    | |   ");
-            PrintInTheMiddle("|  __)   | |   | ||     __)|  __)   (_____  )   | |   ");
-            PrintInTheMiddle("| (      | |   | || (\\ (   | (            ) |   | |   ");
-            PrintInTheMiddle("| )      | (___) || ) \\ \\__| (____/\\/\\____) |   | |   ");
-            PrintInTheMiddle("|/       (_______)|/   \\__/(_______/\\_______)   )_(   ");
-            */
+            if (Program.MyPlayer.Level < 11)
+            {
+                PrintInTheMiddle("Level " + Program.MyPlayer.Level);
+            }
 
-            Console.WriteLine("");
-            Console.WriteLine("");
-            PrintInTheMiddle(pressEnter);
-            Console.ReadKey();
-            Console.Clear();
             switch (Program.MyPlayer.Level)
             {
                 case 1:
+                    ShowFOREST();
+                    MoveToNext();
                     ShowMervin();
                     PrintInTheMiddle("Hi " + Program.playerName + ". I'm Mervin and I know everything about this forest. There is a Giant Wurm in the forest");
-                    PrintInTheMiddle("thats why you have to be carefull.The Giant Wurm have some gold you can get if you kill him. Good luck!");
+                    PrintInTheMiddle("thats why you have to be carefull. The Giant Wurm have some gold you can get if you kill him. Good luck!");
                     Console.WriteLine();
                     PrintInTheMiddle(pressEnter);
                     Console.ReadKey();
                     Console.Clear();
                     //10% sannolikhet att inget händer
                     RandomChance();
-                    Console.Clear();
                     SpecMonster.ShowGiantWurm();
+                    Console.WriteLine();
+                    Fight();
                     break;
-            }
+                case 2:
+                    ShowMOUNTAIN();
+                    MoveToNext();
+                    RandomChance();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle("the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the king of this Mountain. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
 
-            PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
-            //Fight with monster
-            while (Program.MyPlayer.Hp > 0 && SpecMonster.listOfMonsters[Program.MyPlayer.Level-1].Hp>0)
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowDragon();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
+                    else Program.keepPlaing = false;
+                    break;
+                case 3:
+                    ShowJUNGLE();
+                    MoveToNext();
+                    RandomChance();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle("the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the king of this Mountain. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowChupacabra();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
+                    break;
+                case 4:
+                    ShowCASTLE();
+                    MoveToNext();
+                    RandomChance();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the Lord of this Castle. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowDracula();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
+                    break;
+                case 5:
+                    RandomChance();
+                    Fight();
+                    break;
+                case 6:
+                    RandomChance();
+                    Fight();
+                    break;
+                case 7:
+                    RandomChance();
+                    Fight();
+                    break;
+                case 8:
+                    RandomChance();
+                    Fight();
+                    break;
+                case 9:
+                    RandomChance();
+                    Fight();
+                    break;
+                case 10:
+                    RandomChance();
+                    Fight();
+                    break;
+                default:
+                PrintInTheMiddle("YOU WON THE GAME !!!");
+                    Program.keepPlaing = false;
+                break;
+            }
+            
+
+
+        }
+
+        public static void Fight()
+        {
+            while (Program.MyPlayer.Hp > 0 && SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Hp > 0)
             {
                 Random random = new Random();
                 int myAttack = random.Next(Program.MyPlayer.Strength, Program.MyPlayer.Strength * 2) - SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Toughness;
-                int monsterAttack = random.Next(SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Strength, SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Strength * 2)-Program.MyPlayer.Toughness;
-                string s10 = "You hit the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + ", dealing " + myAttack + " damage";
-                SpecMonster.listOfMonsters[Program.MyPlayer.Level-1].Hp -= myAttack;
-                string s11 = "UuuuuuOoooooAaaaaahhhhhhhhhh *slurp*";
-                string s12 = "The " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " hit you, dealing " + monsterAttack + " damage";
+                int monsterAttack = random.Next(SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Strength, SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Strength * 2) - Program.MyPlayer.Toughness;
+
+                SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Hp -= myAttack;
+
                 Program.MyPlayer.Hp -= monsterAttack;
                 if (Program.MyPlayer.Hp < 0) { Program.MyPlayer.Hp = 0; }
                 if (SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Hp < 0) { SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Hp = 0; }
-                string s13 = $"{Program.playerName}: {Program.MyPlayer.Hp} hp";
-                string s14 = $"{SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name}: {SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Hp} hp";
-                PrintInTheMiddle(s10);
-                PrintInTheMiddle(s11);
-                PrintInTheMiddle(s12);
-                PrintInTheMiddle(s13);
-                PrintInTheMiddle(s14);
+
+                PrintInTheMiddle("You hit the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + ", dealing " + myAttack + " damage");
+                PrintInTheMiddle("UuuuuuOoooooAaaaaahhhhhhhhhh *slurp*");
+                PrintInTheMiddle("The " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " hit you, dealing " + monsterAttack + " damage");
+                PrintInTheMiddle($"{Program.playerName}: {Program.MyPlayer.Hp} hp");
+                PrintInTheMiddle($"{SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name}: {SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Hp} hp");
                 PrintInTheMiddle("***********************************");
                 PrintInTheMiddle(pressEnter);
                 Console.ReadKey();
@@ -88,17 +212,18 @@ namespace Labb3VG
                 Console.WriteLine();
                 PrintInTheMiddle(pressEnter);
                 Console.ReadKey();
-                
-                Console.SetCursorPosition((Console.WindowWidth - "Would you like to try again? (y/n):  ".Length)/2,Console.CursorTop);
+
+                Console.SetCursorPosition((Console.WindowWidth - "Would you like to try again? (y/n):  ".Length) / 2, Console.CursorTop);
                 Console.Write("Would you like to try again? (y/n): ");
                 string ans = Console.ReadLine();
+                // if player wouldlike to play again
                 if (ans == "y")
                 {
                     Program.keepPlaing = false;
                     Program.choise = 1;
                     Console.Clear();
                 }
-                else
+                else // player choise to close the game
                 {
                     Program.keepPlaing = false;
                     Program.choise = 4;
@@ -108,9 +233,62 @@ namespace Labb3VG
             else
             {
                 GainTheProfit();
-                Program.Menu();
             }
+        }
 
+        private static void MoveToNext()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("");
+            PrintInTheMiddle(pressEnter);
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        public static void ShowFOREST()
+        {
+            PrintInTheMiddle("    _______  _______  _______  _______  _______ _________   ");
+            PrintInTheMiddle("(  ____ \\(  ___  )(  ____ )(  ____ \\(  ____ \\__   __/ ");
+            PrintInTheMiddle("| (    \\/| (   ) || (    )|| (    \\/| (    \\/   ) (   ");
+            PrintInTheMiddle("    | (__    | |   | || (____)|| (__    | (_____    | |      ");
+            PrintInTheMiddle("    |  __)   | |   | ||     __)|  __)   (_____  )   | |      ");
+            PrintInTheMiddle("  | (      | |   | || (\\ (   | (            ) |   | |     ");
+            PrintInTheMiddle("| )      | (___) || ) \\ \\__| (____/\\/\\____) |   | |  ");
+            PrintInTheMiddle("  |/       (_______)|/   \\__/(_______/\\_______)   )_(    ");
+        }
+
+        public static void ShowMOUNTAIN()
+        {
+            PrintInTheMiddle("    _______  _______           _       _________ _______ _________ _          ");
+            PrintInTheMiddle("(       )(  ___  )|\\     /|( (    /|\\__   __/(  ___  )\\__   __/( (    /|");
+            PrintInTheMiddle(" | () () || (   ) || )   ( ||  \\  ( |   ) (   | (   ) |   ) (   |  \\  ( | ");
+            PrintInTheMiddle("  | || || || |   | || |   | ||   \\ | |   | |   | (___) |   | |   |   \\ | |  ");
+            PrintInTheMiddle("| |(_)| || |   | || |   | || (\\ \\) |   | |   |  ___  |   | |   | (\\ \\) |");
+            PrintInTheMiddle("| |   | || |   | || |   | || | \\   |   | |   | (   ) |   | |   | | \\   |");
+            PrintInTheMiddle("| )   ( || (___) || (___) || )  \\  |   | |   | )   ( |___) (___| )  \\  |");
+            PrintInTheMiddle("|/     \\|(_______)(_______)|/    )_)   )_(   |/     \\|\\_______/|/    )_)");
+        }
+
+        public static void ShowJUNGLE()
+        {
+            PrintInTheMiddle("      _ _   _ _   _  ____ _     _____ ");
+            PrintInTheMiddle("     | | | | | \\ | |/ ___| |   | ____|");
+            PrintInTheMiddle("  _  | | | | |  \\| | |  _| |   |  _|  ");
+            PrintInTheMiddle(" | |_| | |_| | |\\  | |_| | |___| |___ ");
+            PrintInTheMiddle("  \\___/ \\___/|_| \\_|\\____|_____|_____|");
+            PrintInTheMiddle("");
+            PrintInTheMiddle("");
+        }
+        public static void ShowCASTLE()
+        {
+            Levels.PrintInTheMiddle(" _______  _______  _______ _________ _        _______     ");
+            Levels.PrintInTheMiddle("(  ____ \\(  ___  )(  ____ \\\\__   __/( \\      (  ____ \\   ");
+            Levels.PrintInTheMiddle("| (    \\/| (   ) || (    \\/   ) (   | (      | (    \\/    ");
+            Levels.PrintInTheMiddle("| |      | (___) || (_____    | |   | |      | (__        ");
+            Levels.PrintInTheMiddle("| |      |  ___  |(_____  )   | |   | |      |  __)       ");
+            Levels.PrintInTheMiddle("| |      | (   ) |      ) |   | |   | |      | (          ");
+            Levels.PrintInTheMiddle("| (____/\\| )   ( |/\\____) |   | |   | (____/\\| (____/\\    ");
+            Levels.PrintInTheMiddle("(_______/|/     \\|\\_______)   )_(   (_______/(_______/    ");
         }
 
         public static void ShowMervin()
@@ -138,7 +316,7 @@ namespace Labb3VG
             PrintInTheMiddle("    (`-.-'\\ ||  |\\ \\   ` ;  ;       | |");
             PrintInTheMiddle("     \\-_   `;;._   ( `  /  /_       | |");
             PrintInTheMiddle("      `-.-.// ,'`-._\\__/_,'         ; |");
-            
+            Console.WriteLine();
         }
 
         public static void RandomChance()
@@ -156,13 +334,9 @@ namespace Labb3VG
                 Console.ReadKey();
                 Console.SetCursorPosition((Console.WindowWidth - s4.Length) / 2, Console.CursorTop);
                 Console.WriteLine(s4);
-                Console.SetCursorPosition((Console.WindowWidth - pressEnter.Length) / 2, Console.CursorTop);
-                Console.WriteLine(pressEnter);
-                Console.ReadKey();
                 Program.MyPlayer.Toughness += 5;
                 Program.MyPlayer.Strength += 5;
                 Program.ShowDetails();
-
             }
         }
         public static void GainTheProfit()
@@ -170,9 +344,11 @@ namespace Labb3VG
             Console.Clear();
             PrintInTheMiddle("CONGRATULATIONS !!!");
             Console.WriteLine();
-            PrintInTheMiddle("You kill the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " and gain " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].GoldToPlayer + " gold and " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].ExpToPlayer + " experience");
+            PrintInTheMiddle("You kill the " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " and gain " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].GoldToPlayer + " gold, " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].ExpToPlayer + " experience, " + Program.MyPlayer.Level*2 + " strength and " + Program.MyPlayer.Level * 2 + " toughness");
             Program.MyPlayer.Gold += SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].GoldToPlayer;
             Program.MyPlayer.Exp += +SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].ExpToPlayer;
+            Program.MyPlayer.Strength += Program.MyPlayer.Level * 2;
+            Program.MyPlayer.Toughness += Program.MyPlayer.Level * 2;
             Program.MyPlayer.Level++;
             Console.WriteLine();
             Program.ShowDetails();

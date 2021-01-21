@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Labb3VG
 {
-    class Monster
+    abstract class Monster
     {
 
         private string name;
