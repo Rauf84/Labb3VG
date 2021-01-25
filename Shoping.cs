@@ -76,7 +76,7 @@ namespace Labb3VG
 
 
 
-            }
+            } // loopar så länge man vill handla, avbryter loopen med 'q'
         }
     }
 }

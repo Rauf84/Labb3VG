@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Labb3VG
 {
-    abstract class Monster
+    abstract class Monster // en basklass som ärv av SpecMonster
     {
 
         private string name;
@@ -13,7 +13,7 @@ namespace Labb3VG
         private int goldToPlayer;
         private int expToPlayer;
 
-        public virtual void ShowMonsterDetails()
+        public virtual void ShowMonsterDetails() // används inte i spelet, har används för att testa värden 
         {
             Console.WriteLine($"Monster: {this.name}");
             Console.WriteLine($"Health points: {this.hp}");

@@ -24,8 +24,7 @@ namespace Labb3VG
             ShowWindow(ThisConsole, MAXIMIZE);
 
             SpecMonster.AddMonster();
-            SpecMonster.ShowLongTooth();
-            Console.ReadKey();
+
             Welcome();
             Console.Clear();
             if (keepPlaing)

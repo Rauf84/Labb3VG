@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labb3VG
 {
-    class Player
+    class Player // struktur för en spelare spm deklareras i Program.cs i under MyPlayer metoden
     {
         private int hp;
         private int exp;

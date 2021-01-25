@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labb3VG
 {
-    class SpecMonster : Monster
+    class SpecMonster : Monster // arver struc från Monster och lägger till Strenght och toughness
     {
         public static List<SpecMonster> listOfMonsters = new List<SpecMonster>();
  
@@ -24,7 +24,7 @@ namespace Labb3VG
             this.toughness = Toughness;
         }
 
-        public static void AddMonster()
+        public static void AddMonster() // deklarerar 10  SpecMonstrar i en lista 
         {
             listOfMonsters.Add(new SpecMonster("Giant Wurm",100, 10, 35, 8, 1));
             listOfMonsters.Add(new SpecMonster("Flying Dragon", 100, 18, 35, 12, 5));
@@ -38,6 +38,7 @@ namespace Labb3VG
             listOfMonsters.Add(new SpecMonster("Long Tooth", 100, 125, 35, 74, 44));
         }
         
+        // metoder som skriver ut unika bilder på monstrar 
         public static void ShowDragon()
         {
             Levels.PrintInTheMiddle("                                              ,--,  ,.-.            ");
@@ -66,7 +67,6 @@ namespace Labb3VG
             Levels.PrintInTheMiddle("   `                      ```                                       ");
 
         }
-
         public static void ShowGiantWurm()
         {
             Levels.PrintInTheMiddle("            _......._               ");
@@ -91,7 +91,6 @@ namespace Labb3VG
             Console.WriteLine();
 
         }
-
         public static void ShowChupacabra()
         {
             Levels.PrintInTheMiddle("      /^\\      /^\\                   ");

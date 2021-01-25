@@ -14,7 +14,7 @@ namespace Labb3VG
         {
             Console.SetCursorPosition((Console.WindowWidth - s1.Length) / 2, Console.CursorTop);
             Console.WriteLine(s1);
-        }
+        } //skriver ut "Press enter ... " i mitten av skärmen
         public static void Level()
         {
            Console.WriteLine();
@@ -22,12 +22,12 @@ namespace Labb3VG
             Console.WriteLine();
             if (Program.MyPlayer.Level < 11)
             {
-                PrintInTheMiddle("Level " + Program.MyPlayer.Level);
+                PrintInTheMiddle("Level " + Program.MyPlayer.Level); // visar på vilken nivå man spelar
             }
 
-            switch (Program.MyPlayer.Level)
+            switch (Program.MyPlayer.Level) // 10 olika scenario på nivåer med olika svårghetsgrader
             {
-                case 1:
+                case 1: // menun på första nivån syns innan level 1 startas då han man inga inga penga att köpa nåt
                     ShowFOREST();
                     MoveToNext();
                     ShowMervin();
@@ -37,14 +37,14 @@ namespace Labb3VG
                     PrintInTheMiddle(pressEnter);
                     Console.ReadKey();
                     Console.Clear();
-                    //10% sannolikhet att inget händer
+                    //10% sannolikhet att inget händer upprepas på varje level innan man träffar monstret
                     RandomChance();
                     SpecMonster.ShowGiantWurm();
                     Console.WriteLine();
-                    Fight();
+                    Fight(); // loop för fight till antigen spelare eller monster vinner
                     break;
-                case 2:
-                    ShowMOUNTAIN();
+                case 2: // från och med level 2 har man "Mervin" som rekkomnderar att använda sig av menun och köpa nåt i butiken
+                    ShowMOUNTAIN(); // varje level har ett unikt namn
                     MoveToNext();
                     RandomChance();
                     do
@@ -69,7 +69,7 @@ namespace Labb3VG
                     if (Program.choise == 1)
                     {
                         Console.Clear();
-                        SpecMonster.ShowDragon();
+                        SpecMonster.ShowDragon(); // varje level har ett unik SpecMonster
                         Console.WriteLine();
 
                         PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
@@ -350,7 +350,7 @@ namespace Labb3VG
                         Fight();
                     }
                     break;
-                default:
+                default: // körs om man kommit över level 10 dvs vunnit spelet
                 PrintInTheMiddle("YOU WON THE GAME !!!");
                     Program.keepPlaing = false;
                 break;
@@ -415,7 +415,9 @@ namespace Labb3VG
             {
                 GainTheProfit();
             }
-        }
+        }//loopen fortsätter tills någon vinner
+
+        // Metoder som skriver ut namnet på varje level
         public static void MoveToNext()
         {
             Console.WriteLine("");
@@ -565,7 +567,7 @@ namespace Labb3VG
             PrintInTheMiddle("     \\-_   `;;._   ( `  /  /_       | |");
             PrintInTheMiddle("      `-.-.// ,'`-._\\__/_,'         ; |");
             Console.WriteLine();
-        }
+        } // visar Mervin
 
         public static void RandomChance()
         {
@@ -586,7 +588,7 @@ namespace Labb3VG
                 Program.MyPlayer.Strength += 5;
                 Program.ShowDetails();
             }
-        }
+        } // 10% sannolikhet att inget händer samt har man tur får man lite krafter på köpet
         public static void GainTheProfit()
         {
             Console.Clear();
@@ -600,7 +602,7 @@ namespace Labb3VG
             Program.MyPlayer.Level++;
             Console.WriteLine();
             Program.ShowDetails();
-        }
+        } // metod som ger spelaren skfter, guld mm när man vinner över en monster
         public static void ShowGameOver()
         {
             PrintInTheMiddle("        GGGGGGGGGGGGG                                                                        OOOOOOOOO                                                                   ");
@@ -619,7 +621,7 @@ namespace Labb3VG
             PrintInTheMiddle("   GG:::::::::::::::Ga:::::aaaa::::::a m::::m   m::::m   m::::m e::::::::eeeeeeee        OO:::::::::::::OO          v:::::v       e::::::::eeeeeeee   r:::::r            ");
             PrintInTheMiddle("     GGG::::::GGG:::G a::::::::::aa:::am::::m   m::::m   m::::m  ee:::::::::::::e          OO:::::::::OO             v:::v         ee:::::::::::::e   r:::::r            ");
             PrintInTheMiddle("        GGGGGG   GGGG  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmm    eeeeeeeeeeeeee            OOOOOOOOO                vvv            eeeeeeeeeeeeee   rrrrrrr            ");
-        }
+        } // visar Game Over i mitten av skärmen när man förlurar
 
     }
 }
