@@ -30,16 +30,39 @@ namespace Labb3VG
                 switch (shopChoise)
                 {
                     case "1":
-                        Program.MyPlayer.Hp += 100;
-                        Program.MyPlayer.Gold -= 10;
+                        if (Program.MyPlayer.Gold >= 10)
+                        {
+                            Program.MyPlayer.Hp += 100;
+                            Program.MyPlayer.Gold -= 10;
+
+                        }
+                        else
+                        {
+                            Levels.PrintInTheMiddle("* You have no enough coins !!! *");
+                        }
                         break;
                     case "2":
-                        Program.MyPlayer.Strength += 10;
-                        Program.MyPlayer.Gold -= 10;
+                        if (Program.MyPlayer.Gold >= 10)
+                        {
+                            Program.MyPlayer.Strength += 10;
+                            Program.MyPlayer.Gold -= 10;
+
+                        }
+                        else
+                        {
+                            Levels.PrintInTheMiddle("* You have no enough coins !!! *");
+                        }
                         break;
                     case "3":
-                        Program.MyPlayer.Toughness += 10;
-                        Program.MyPlayer.Gold -= 10;
+                        if (Program.MyPlayer.Gold >= 10)
+                        {
+                            Program.MyPlayer.Toughness += 10;
+                            Program.MyPlayer.Gold -= 10;
+                        }
+                        else
+                        {
+                            Levels.PrintInTheMiddle("* You have no enough coins !!! *");
+                        }
                         break;
                     case "q":
                         Console.Clear();

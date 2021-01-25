@@ -24,10 +24,14 @@ namespace Labb3VG
             ShowWindow(ThisConsole, MAXIMIZE);
 
             SpecMonster.AddMonster();
-
+            SpecMonster.ShowLongTooth();
+            Console.ReadKey();
             Welcome();
             Console.Clear();
-            ChoiseAvatar();
+            if (keepPlaing)
+            {
+                ChoiseAvatar();
+            }
             Menu();
             ShowByeBye();
         }
@@ -48,6 +52,27 @@ namespace Labb3VG
             Console.SetCursorPosition((Console.WindowWidth - "************************".Length) / 2, Console.CursorTop);
             Console.Write("Enter your name: ");
             playerName = Console.ReadLine();
+            switch (playerName)
+            {
+                case "Robin":
+                    Levels.PrintInTheMiddle("");
+                    Levels.PrintInTheMiddle("****************************************************");
+                    Levels.PrintInTheMiddle("*GODMODE ACTIVATED: + 500 gold coins               *");
+                    Levels.PrintInTheMiddle("*                   + Super Power (100 strength)   *");
+                    Levels.PrintInTheMiddle("*                   + Golden Shield (100 toughness)*");
+                    Levels.PrintInTheMiddle("****************************************************");
+                    MyPlayer.Gold += 500;
+                    MyPlayer.Strength += 100;
+                    MyPlayer.Toughness += 100;
+                    Levels.MoveToNext();
+                    break;
+                case "q":
+                    keepPlaing = false;
+                    choise = 4;
+                    break;
+                default:
+                    break;
+            }
             Console.Clear();
             return playerName;
         }
@@ -64,11 +89,14 @@ namespace Labb3VG
                     ResetMonsters();
                     ShowDetails();
                     Console.WriteLine();
-                    keepPlaing = true;
                 }
                 ShowMeny();
 
                 FourActions();
+                if (Levels.ans == "y")
+                {
+                    keepPlaing = true;
+                }
             }
 
         }

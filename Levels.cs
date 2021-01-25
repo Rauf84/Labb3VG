@@ -8,6 +8,7 @@ namespace Labb3VG
 {
     public class Levels
     {
+        public static string ans;
         public static string pressEnter = "[Press enter to continue]";
         public static void PrintInTheMiddle(string s1)
         {
@@ -146,28 +147,208 @@ namespace Labb3VG
                     }
                     break;
                 case 5:
+                    ShowDESERT();
+                    MoveToNext();
                     RandomChance();
-                    Fight();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " . Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowFrankenstein();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
                     break;
                 case 6:
+                    ShowOCEAN();
+                    MoveToNext();
                     RandomChance();
-                    Fight();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the Devil of this Ocean. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowPirateGhost();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
                     break;
                 case 7:
+                    ShowDOWNTOWN();
+                    MoveToNext();
                     RandomChance();
-                    Fight();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the most dangerous murder ever. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowFreddie();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
                     break;
                 case 8:
+                    ShowFIREFIELD();
+                    MoveToNext();
                     RandomChance();
-                    Fight();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the most powerful devil. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowLucifer();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
                     break;
                 case 9:
+                    ShowPYRAMID();
+                    MoveToNext();
                     RandomChance();
-                    Fight();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the Lord of this Castle. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowZombie();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
                     break;
                 case 10:
+                    ShowSIBERIA();
+                    MoveToNext();
                     RandomChance();
-                    Fight();
+                    do
+                    {
+                        ShowMervin();
+                        PrintInTheMiddle("Wow " + Program.MyPlayer.Name + ", that was a great fight with " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 2].Name + ".");
+                        PrintInTheMiddle("You killed him and took his gold. I advise you to go to the shop because this time you will meet ");
+                        PrintInTheMiddle(" " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " - the most dangerous TIGER of SIBERIA. Good luck!");
+                        Console.WriteLine();
+                        Program.ShowMeny();
+                        switch (Program.choise)
+                        {
+                            case 2:
+                                Program.ShowDetails();
+                                break;
+                            case 3:
+                                Shoping.Shoping1();
+                                break;
+                        }
+                    } while (Program.choise == 2 || Program.choise == 3);
+
+                    if (Program.choise == 1)
+                    {
+                        Console.Clear();
+                        SpecMonster.ShowLongTooth();
+                        Console.WriteLine();
+
+                        PrintInTheMiddle("Uh oh! A " + SpecMonster.listOfMonsters[Program.MyPlayer.Level - 1].Name + " appeared!");
+                        //Fight with monster until the monster or player win
+                        Fight();
+                    }
                     break;
                 default:
                 PrintInTheMiddle("YOU WON THE GAME !!!");
@@ -215,7 +396,7 @@ namespace Labb3VG
 
                 Console.SetCursorPosition((Console.WindowWidth - "Would you like to try again? (y/n):  ".Length) / 2, Console.CursorTop);
                 Console.Write("Would you like to try again? (y/n): ");
-                string ans = Console.ReadLine();
+                ans = Console.ReadLine();
                 // if player wouldlike to play again
                 if (ans == "y")
                 {
@@ -235,8 +416,7 @@ namespace Labb3VG
                 GainTheProfit();
             }
         }
-
-        private static void MoveToNext()
+        public static void MoveToNext()
         {
             Console.WriteLine("");
             Console.WriteLine("");
@@ -244,11 +424,10 @@ namespace Labb3VG
             Console.ReadKey();
             Console.Clear();
         }
-
         public static void ShowFOREST()
         {
             PrintInTheMiddle("    _______  _______  _______  _______  _______ _________   ");
-            PrintInTheMiddle("(  ____ \\(  ___  )(  ____ )(  ____ \\(  ____ \\__   __/ ");
+            PrintInTheMiddle("(  ____ \\(  ___  )(  ____ )(  ____ \\(  ____ \\\\__   __/");
             PrintInTheMiddle("| (    \\/| (   ) || (    )|| (    \\/| (    \\/   ) (   ");
             PrintInTheMiddle("    | (__    | |   | || (____)|| (__    | (_____    | |      ");
             PrintInTheMiddle("    |  __)   | |   | ||     __)|  __)   (_____  )   | |      ");
@@ -256,7 +435,6 @@ namespace Labb3VG
             PrintInTheMiddle("| )      | (___) || ) \\ \\__| (____/\\/\\____) |   | |  ");
             PrintInTheMiddle("  |/       (_______)|/   \\__/(_______/\\_______)   )_(    ");
         }
-
         public static void ShowMOUNTAIN()
         {
             PrintInTheMiddle("    _______  _______           _       _________ _______ _________ _          ");
@@ -268,7 +446,6 @@ namespace Labb3VG
             PrintInTheMiddle("| )   ( || (___) || (___) || )  \\  |   | |   | )   ( |___) (___| )  \\  |");
             PrintInTheMiddle("|/     \\|(_______)(_______)|/    )_)   )_(   |/     \\|\\_______/|/    )_)");
         }
-
         public static void ShowJUNGLE()
         {
             PrintInTheMiddle("      _ _   _ _   _  ____ _     _____ ");
@@ -290,6 +467,77 @@ namespace Labb3VG
             Levels.PrintInTheMiddle("| (____/\\| )   ( |/\\____) |   | |   | (____/\\| (____/\\    ");
             Levels.PrintInTheMiddle("(_______/|/     \\|\\_______)   )_(   (_______/(_______/    ");
         }
+        public static void ShowDESERT() 
+        {
+            PrintInTheMiddle(" ______   _______  _______  _______  _______ _________");
+            PrintInTheMiddle("(  __  \\ (  ____ \\(  ____ \\(  ____ \\(  ____ )\\__   __/");
+            PrintInTheMiddle("| (  \\  )| (    \\/| (    \\/| (    \\/| (    )|   ) (   ");
+            PrintInTheMiddle("| |   ) || (__    | (_____ | (__    | (____)|   | |   ");
+            PrintInTheMiddle("| |   | ||  __)   (_____  )|  __)   |     __)   | |   ");
+            PrintInTheMiddle("| |   ) || (            ) || (      | (\\ (      | |   ");
+            PrintInTheMiddle("| (__/  )| (____/\\/\\____) || (____/\\| ) \\ \\__   | |   ");
+            PrintInTheMiddle("(______/ (_______/\\_______)(_______/|/   \\__/   )_(   ");
+            PrintInTheMiddle("");
+        }
+        public static void ShowDOWNTOWN()
+        {
+            PrintInTheMiddle(" ______   _______           _         _________ _______           _       ");
+            PrintInTheMiddle("(  __  \\ (  ___  )|\\     /|( (    /|  \\__   __/(  ___  )|\\     /|( (    /|");
+            PrintInTheMiddle("| (  \\  )| (   ) || )   ( ||  \\  ( |     ) (   | (   ) || )   ( ||  \\  ( |");
+            PrintInTheMiddle("| |   ) || |   | || | _ | ||   \\ | |     | |   | |   | || | _ | ||   \\ | |");
+            PrintInTheMiddle("| |   | || |   | || |( )| || (\\ \\) |     | |   | |   | || |( )| || (\\ \\) |");
+            PrintInTheMiddle("| |   ) || |   | || || || || | \\   |     | |   | |   | || || || || | \\   |");
+            PrintInTheMiddle("| (__/  )| (___) || () () || )  \\  |     | |   | (___) || () () || )  \\  |");
+            PrintInTheMiddle("(______/ (_______)(_______)|/    )_)     )_(   (_______)(_______)|/    )_)");
+        }
+        public static void ShowOCEAN()
+        {
+            PrintInTheMiddle(" _______  _______  _______  _______  _       ");
+            PrintInTheMiddle("(  ___  )(  ____ \\(  ____ \\(  ___  )( (    /|");
+            PrintInTheMiddle("| (   ) || (    \\/| (    \\/| (   ) ||  \\  ( |");
+            PrintInTheMiddle("| |   | || |      | (__    | (___) ||   \\ | |");
+            PrintInTheMiddle("| |   | || |      |  __)   |  ___  || (\\ \\) |");
+            PrintInTheMiddle("| |   | || |      | (      | (   ) || | \\   |");
+            PrintInTheMiddle("| (___) || (____/\\| (____/\\| )   ( || )  \\  |");
+            PrintInTheMiddle("(_______)(_______/(_______/|/     \\||/    )_)");
+        }
+        public static void ShowFIREFIELD()
+        {
+            PrintInTheMiddle(" _______ _________ _______  _______  _______ _________ _______  _        ______  ");
+            PrintInTheMiddle("(  ____ \\\\__   __/(  ____ )(  ____ \\(  ____ \\\\__   __/(  ____ \\( \\      (  __  \\ ");
+            PrintInTheMiddle("| (    \\/   ) (   | (    )|| (    \\/| (    \\/   ) (   | (    \\/| (      | (  \\  )");
+            PrintInTheMiddle("| (__       | |   | (____)|| (__    | (__       | |   | (__    | |      | |   ) |");
+            PrintInTheMiddle("|  __)      | |   |     __)|  __)   |  __)      | |   |  __)   | |      | |   | |");
+            PrintInTheMiddle("| (         | |   | (\\ (   | (      | (         | |   | (      | |      | |   ) |");
+            PrintInTheMiddle("| )      ___) (___| ) \\ \\__| (____/\\| )      ___) (___| (____/\\| (____/\\| (__/  )");
+            PrintInTheMiddle("|/       \\_______/|/   \\__/(_______/|/       \\_______/(_______/(_______/(______/ ");
+        }
+        public static void ShowPYRAMID()
+        {
+            PrintInTheMiddle(" _______           _______  _______  _______ _________ ______  ");
+            PrintInTheMiddle("(  ____ )|\\     /|(  ____ )(  ___  )(       )\\__   __/(  __  \\ ");
+            PrintInTheMiddle("| (    )|( \\   / )| (    )|| (   ) || () () |   ) (   | (  \\\\ )");
+            PrintInTheMiddle("| (____)| \\ (_) / | (____)|| (___) || || || |   | |   | |   ) |");
+            PrintInTheMiddle("|  _____)  \\   /  |     __)|  ___  || |(_)| |   | |   | |   | |");
+            PrintInTheMiddle("| (         ) (   | (\\ (   | (   ) || |   | |   | |   | |   ) |"); 
+            PrintInTheMiddle("| )         | |   | ) \\ \\__| )   ( || )   ( |___) (___| (__/  )");
+            PrintInTheMiddle("|/          \\_/   |/   \\__/|/     \\||/     \\|\\_______/(______/ ");
+            PrintInTheMiddle("");
+            PrintInTheMiddle("");
+        }
+        public static void ShowSIBERIA()
+        {
+            PrintInTheMiddle(" _______ _________ ______   _______  _______ _________ _______ ");
+            PrintInTheMiddle("(  ____ \\\\__   __/(  ___ \\ (  ____ \\(  ____ )\\__   __/(  ___  )");
+            PrintInTheMiddle("| (    \\/   ) (   | (   ) )| (    \\/| (    )|   ) (   | (   ) |");
+            PrintInTheMiddle("| (_____    | |   | (__/ / | (__    | (____)|   | |   | (___) |");
+            PrintInTheMiddle("(_____  )   | |   |  __ (  |  __)   |     __)   | |   |  ___  |");
+            PrintInTheMiddle("      ) |   | |   | (  \\ \\ | (      | (\\ (      | |   | (   ) |");
+            PrintInTheMiddle("/\\____) |___) (___| )___) )| (____/\\| ) \\ \\_____) (___| )   ( |");
+            PrintInTheMiddle("\\_______)\\_______/|/ \\___/ (_______/|/   \\__/\\_______/|/     \\|");
+            PrintInTheMiddle("                                                               ");
+        }
+
 
         public static void ShowMervin()
         {

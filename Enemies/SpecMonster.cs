@@ -144,6 +144,153 @@ namespace Labb3VG
             Levels.PrintInTheMiddle("/###################/####################\\");
             Levels.PrintInTheMiddle("");
         }
+        public static void ShowFrankenstein()
+        {
+            Levels.PrintInTheMiddle("                                         .....     ");
+            Levels.PrintInTheMiddle("                                        C C  /     ");
+            Levels.PrintInTheMiddle("                                       /<   /      ");
+            Levels.PrintInTheMiddle("                        ___ __________/_#__=o      ");
+            Levels.PrintInTheMiddle("                       /(- /(\\_\\________   \\        ");
+            Levels.PrintInTheMiddle("                       \\ ) \\ )_      \\o     \\      ");
+            Levels.PrintInTheMiddle("                       /|\\ /|\\       |'     |       ");
+            Levels.PrintInTheMiddle("                                     |     _|      ");
+            Levels.PrintInTheMiddle("                                     /o   __\\      ");
+            Levels.PrintInTheMiddle("                                    / '     |      ");
+            Levels.PrintInTheMiddle("                                   / /      |      ");
+            Levels.PrintInTheMiddle("                                  /_/\\______|      ");
+            Levels.PrintInTheMiddle("                                 (   _(    <       ");
+            Levels.PrintInTheMiddle("                                  \\    \\    \\       ");
+            Levels.PrintInTheMiddle("                                   \\    \\    |      ");
+            Levels.PrintInTheMiddle("                                    \\____\\____\\     ");
+            Levels.PrintInTheMiddle("                                  ____\\_\\__\\_\\     ");
+            Levels.PrintInTheMiddle("                                 /`   /`     o\\       ");
+            Levels.PrintInTheMiddle("                                 |___ |_______|.. .   ");
+            Levels.PrintInTheMiddle("");
+        }
+        public static void ShowPirateGhost()
+        {
+            Levels.PrintInTheMiddle("         _,-._                                              ");
+            Levels.PrintInTheMiddle("        ; ___ :           ,------------------------------.  ");
+            Levels.PrintInTheMiddle("    ,--' (. .) '--.__    |                                | ");
+            Levels.PrintInTheMiddle("  _;      |||        \\   |   Give me your gold, loser!    |");
+            Levels.PrintInTheMiddle(" '._,-----''';=.____,'   |                                | ");
+            Levels.PrintInTheMiddle("   /// < o>   |##|       |                                | ");
+            Levels.PrintInTheMiddle("   (o        \\`--'       //`-----------------------------' ");
+            Levels.PrintInTheMiddle("  ///\\ >>>>  _\\ <<<<    //                                 ");
+            Levels.PrintInTheMiddle(" --._>>>>>>>><<<<<<<<  /                                    ");
+            Levels.PrintInTheMiddle(" ___() >>>[||||]<<<<                                        ");
+            Levels.PrintInTheMiddle(" `--'>>>>>>>><<<<<<<                                        ");
+            Levels.PrintInTheMiddle("      >>>>>>><<<<<<                                         ");
+            Levels.PrintInTheMiddle("        >>>>><<<<<                                          ");
+            Levels.PrintInTheMiddle("         >>ctr<<                                            ");
+        }
+        public static void ShowFreddie()
+        {
+            Levels.PrintInTheMiddle("                             (                         ");
+            Levels.PrintInTheMiddle("                .            )        )                ");
+            Levels.PrintInTheMiddle("                         (  (|              .          ");
+            Levels.PrintInTheMiddle("                     )   )\\/ ( ( (                     ");
+            Levels.PrintInTheMiddle("             *  (   ((  /     ))\\))  (  )    )         ");
+            Levels.PrintInTheMiddle("           (     \\   )\\(          |  ))( )  (|         ");
+            Levels.PrintInTheMiddle("           >)     ))/   |          )/  \\((  ) \\        ");
+            Levels.PrintInTheMiddle("           (     (      .        -.     V )/   )(    ( ");
+            Levels.PrintInTheMiddle("            \\   /     .   \\            .       \\))   ))");
+            Levels.PrintInTheMiddle("              )(      (  | |   )            .    (  /  ");
+            Levels.PrintInTheMiddle("             )(    ,'))     \\ /          \\( `.    )    ");
+            Levels.PrintInTheMiddle("             (\\>  ,'/__      ))            __`.  /     ");
+            Levels.PrintInTheMiddle("            ( \\   | /  ___   ( \\/     ___   \\ | ( (    ");
+            Levels.PrintInTheMiddle("             \\.)  |/  /   \\__      __/   \\   \\|  ))    ");
+            Levels.PrintInTheMiddle("            .  \\. |>  \\      | __ |      /   <|  /     ");
+            Levels.PrintInTheMiddle("                 )/    \\____/ :..: \\____/     \\ <      ");
+            Levels.PrintInTheMiddle("          )   \\ (|__  .      / ;: \\          __| )  (  ");
+            Levels.PrintInTheMiddle("         ((    )\\)  ~--_     --  --      _--~    /  )) ");
+            Levels.PrintInTheMiddle("          \\    (    |  ||               ||  |   (  /   ");
+            Levels.PrintInTheMiddle("                \\.  |  ||_             _||  |  /       ");
+            Levels.PrintInTheMiddle("                  > :  |  ~V+-I_I_I-+V~  |  : (.       ");
+            Levels.PrintInTheMiddle("                 (  \\:  T\\   _     _   /T  : ./        ");
+            Levels.PrintInTheMiddle("                  \\  :    T^T T-+-T T^T    ;<          ");
+            Levels.PrintInTheMiddle("                   \\..`_       -+-       _'  )         ");
+            Levels.PrintInTheMiddle("                    \\_______________________/          ");
+            Levels.PrintInTheMiddle("");
+        }
+        public static void ShowLucifer()
+        {
+            Levels.PrintInTheMiddle("                    `' -._                    ");
+            Levels.PrintInTheMiddle("                      `. ' -._                ");
+            Levels.PrintInTheMiddle("                        T.   ' -.             ");
+            Levels.PrintInTheMiddle("                         $$p.   ' -.          ");
+            Levels.PrintInTheMiddle("                         $$$$b.    `,        ");
+            Levels.PrintInTheMiddle("                      .g$$$$$$$b    ;        ");
+            Levels.PrintInTheMiddle("                    .d$$$$$$$$$$;   ;        ");
+            Levels.PrintInTheMiddle("                 __d$$$$$$P''^T$$   :        ");
+            Levels.PrintInTheMiddle("               .d$$$$P^^''___       :        ");
+            Levels.PrintInTheMiddle("              d$P'__..gg$$$$$$$$$$; ;        ");
+            Levels.PrintInTheMiddle("             d$$ :$$$$$$$$$$$$$$$$;  ;       ");
+            Levels.PrintInTheMiddle("            :$$; $$$$$$$$$$$$$$$$P  :$       ");
+            Levels.PrintInTheMiddle("            :$$; $$$$$$$$$$$$$$$$P  :$       ");
+            Levels.PrintInTheMiddle("            $$$  $$$$$$$$$$$$$$$$b  $$       ");
+            Levels.PrintInTheMiddle("           :$$$ :$$$$$$$$$$$$$$$$$; $$;      ");
+            Levels.PrintInTheMiddle("           :$$$ :$$$$$$$$$$$$$$$$$; $$;      ");
+            Levels.PrintInTheMiddle("           $$$; $$$$$$$$$$$$$$$$$$; $$;      ");
+            Levels.PrintInTheMiddle("          :$$$  $$$$$$$$$^$$$$$$$$$ :$$      ");
+            Levels.PrintInTheMiddle("          $$$; :$$$p__gP' `Tp__g$$$ :$$      ");
+            Levels.PrintInTheMiddle("         :$$$  $$P`T$P' .$. `T$P'T$; $$;     ");
+            Levels.PrintInTheMiddle("         $$$; :$$;     :P^T;     :$; $$;     ");
+            Levels.PrintInTheMiddle("        :$$$  $$$$-.           .-$$$ :$$     ");
+            Levels.PrintInTheMiddle("        $$$$ :$$$$; \\   T$P   / :$$$  $$     ");
+            Levels.PrintInTheMiddle("       :$$$; $$$$$$  ; b:$;d :  $$$$; $$;    ");
+            Levels.PrintInTheMiddle("       $$$$; $$$$$$; : T T T ; :$$$$$ :$$    ");
+            Levels.PrintInTheMiddle("    .g$$$$$  :$$$$$$  ;' | ':  $$$$$$  T$b   ");
+            Levels.PrintInTheMiddle(" .g$$$$$$$$   $$$$$$b :     ; d$$$$$;   `Tb  ");
+            Levels.PrintInTheMiddle(":$$$$$$$$$;   :$$$$$$$;     :$$$$$$P       \\ ");
+            Levels.PrintInTheMiddle(":$$$$$$$$$;    T$$$$$$$p._.g$$$$$$P         ;");
+            Levels.PrintInTheMiddle("$$$P^^T$$$$p.   `T$$$$$$$$$$$$$$P'     _/`. :");
+            Levels.PrintInTheMiddle("       `T$$$$$b.  `T$$$$$$$$$$P'    .g$P   \\;");
+            Levels.PrintInTheMiddle("         `T$$$$$b.  ' ^ T$$$$P ^ '     d$P'      ");
+            Levels.PrintInTheMiddle("           `T$$$$$b.             .dP'        ");
+            Levels.PrintInTheMiddle("             ' ^ T$$$$b.        .g$P'          ");
+            Console.WriteLine();
+        }
+        public static void ShowZombie()
+        {
+            Levels.PrintInTheMiddle("              .--._        ");
+            Levels.PrintInTheMiddle("        __   '---._)       ");
+            Levels.PrintInTheMiddle("      '')\\   Q Q )        ");
+            Levels.PrintInTheMiddle("        =_/   c  /         ");
+            Levels.PrintInTheMiddle("        | \\_.-;-'-,._     ");
+            Levels.PrintInTheMiddle("        |  '  o---o   )    ");
+            Levels.PrintInTheMiddle("         \\   /H __H\\/    ");
+            Levels.PrintInTheMiddle("          '-' \\'')\\/|    ");
+            Levels.PrintInTheMiddle("            _ |_='-)_/     ");
+            Levels.PrintInTheMiddle("           /  '.    )      ");
+            Levels.PrintInTheMiddle("          /         /      ");
+            Levels.PrintInTheMiddle("         |___/\\|   /      ");
+            Levels.PrintInTheMiddle("          |_|  |   |       ");
+            Levels.PrintInTheMiddle("         /  )  \\   \\     ");
+            Levels.PrintInTheMiddle("        (__/    \\___\\    ");
+            Levels.PrintInTheMiddle("                  \\_\\    ");
+            Levels.PrintInTheMiddle("                  /  )     ");
+            Levels.PrintInTheMiddle("                 (__/      ");
+            Levels.PrintInTheMiddle("");
+        }
+        public static void ShowLongTooth()
+        {
+            Levels.PrintInTheMiddle("    _                                                       ");
+            Levels.PrintInTheMiddle("  ( \\                ..-----..__                          ");
+            Levels.PrintInTheMiddle("   \\.'.        _.--'`  [   '  ' ```'-._                   ");
+            Levels.PrintInTheMiddle("    `. `'-..-'' `    '  ' '   .  ;   ; `-'''-.,__/|/_      ");
+            Levels.PrintInTheMiddle("      `'-.;..-''`|'  `.  '.    ;     '  `    '   `'  `,    ");
+            Levels.PrintInTheMiddle("                 \\ '   .    ' .     '   ;   .`   . ' 7 \\ ");
+            Levels.PrintInTheMiddle("                  '.' . '- . \\    .`   .`  .   .\\     `Y ");
+            Levels.PrintInTheMiddle("                    '-.' .   ].  '   ,    '    /'`''';:'   ");
+            Levels.PrintInTheMiddle("                      /Y   '.] '-._ /    ' _.-'            ");
+            Levels.PrintInTheMiddle("                      \\'\\_   ; (`'.'.'  .'/                ");
+            Levels.PrintInTheMiddle("                       ' )` /  `.'   .-'.'                 ");
+            Levels.PrintInTheMiddle("                        '\\  \\).'  .-'--'                   ");
+            Levels.PrintInTheMiddle("                          `. `,_'`                         ");
+            Levels.PrintInTheMiddle("                            `.__)                          ");
+        }
+
 
     }
 }
